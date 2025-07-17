@@ -23,7 +23,7 @@ from playwright_firefox._impl._greenlets import MainGreenlet
 from playwright_firefox._impl._object_factory import create_remote_object
 from playwright_firefox._impl._playwright import Playwright
 from playwright_firefox._impl._transport import PipeTransport
-from playwright_firefox.sync_api._generated import playwright_firefox as SyncPlaywright
+from playwright_firefox.sync_api._generated import Playwright as SyncPlaywright
 
 if TYPE_CHECKING:
     from asyncio.unix_events import AbstractChildWatcher

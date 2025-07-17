@@ -107,7 +107,7 @@ class Browser(ChannelOwner):
     def _setup_browser_context(self, context: BrowserContext) -> None:
         context._tracing._traces_dir = self._traces_dir
         assert self._browser_type is not None
-        self._browser_type._playwright_firefox.selectors._contexts_for_selectors.add(context)
+        self._browser_type._playwright.selectors._contexts_for_selectors.add(context)
 
     def _on_close(self) -> None:
         self._is_connected = False
