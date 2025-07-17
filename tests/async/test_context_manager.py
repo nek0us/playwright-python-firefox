@@ -16,7 +16,7 @@ from typing import Dict
 
 import pytest
 
-from playwright.async_api import BrowserContext, BrowserType
+from playwright_firefox.async_api import BrowserContext, BrowserType
 
 
 async def test_context_managers(

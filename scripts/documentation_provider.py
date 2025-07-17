@@ -19,7 +19,7 @@ from sys import stderr
 from typing import Any, Dict, List, Set, Union, get_args, get_origin, get_type_hints
 from urllib.parse import urljoin
 
-from playwright._impl._helper import to_snake_case
+from playwright_firefox._impl._helper import to_snake_case
 
 enum_regex = r"^\"[^\"]+\"(?:\|\"[^\"]+\")+$"
 union_regex = r"^[^\|]+(?:\|[^\|]+)+$"
@@ -350,7 +350,7 @@ class DocumentationProvider:
         str_value = str(value)
         if isinstance(value, list):
             return f"[{', '.join(list(map(lambda a: self.serialize_python_type(a, direction), value)))}]"
-        if str_value == "<class 'playwright._impl._errors.Error'>":
+        if str_value == "<class 'playwright_firefox._impl._errors.Error'>":
             return "Error"
         if str_value == "<class 'NoneType'>":
             return "None"
@@ -360,7 +360,7 @@ class DocumentationProvider:
         if match:
             return match.group(1)
         match = re.match(
-            r"playwright._impl._event_context_manager.EventContextManagerImpl\[playwright._impl.[^.]+.(.*)\]",
+            r"playwright_firefox._impl._event_context_manager.EventContextManagerImpl\[playwright_firefox._impl.[^.]+.(.*)\]",
             str_value,
         )
         if match:

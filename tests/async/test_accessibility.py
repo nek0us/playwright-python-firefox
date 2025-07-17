@@ -16,7 +16,7 @@ import sys
 
 import pytest
 
-from playwright.async_api import Page
+from playwright_firefox.async_api import Page
 
 
 async def test_accessibility_should_work(

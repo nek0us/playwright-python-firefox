@@ -18,7 +18,7 @@ from typing import Dict
 import pytest
 import requests
 
-from playwright.async_api import BrowserType, Error
+from playwright_firefox.async_api import BrowserType, Error
 from tests.server import Server, WebSocketProtocol, find_free_port
 
 pytestmark = pytest.mark.only_browser("chromium")

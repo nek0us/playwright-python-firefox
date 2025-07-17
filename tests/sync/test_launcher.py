@@ -18,7 +18,7 @@ from typing import Dict, Optional
 
 import pytest
 
-from playwright.sync_api import BrowserType, Error
+from playwright_firefox.sync_api import BrowserType, Error
 
 
 @pytest.mark.skip_browser("firefox")

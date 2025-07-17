@@ -15,7 +15,7 @@ from typing import Generator
 
 import pytest
 
-from playwright.sync_api import Page, expect
+from playwright_firefox.sync_api import Page, expect
 
 from .utils import TODO_ITEMS, create_default_todos
 
@@ -23,7 +23,7 @@ from .utils import TODO_ITEMS, create_default_todos
 @pytest.fixture(autouse=True)
 def run_around_tests(page: Page) -> Generator[None, None, None]:
     # setup before a test
-    page.goto("https://demo.playwright.dev/todomvc")
+    page.goto("https://demo.playwright_firefox.dev/todomvc")
     create_default_todos(page)
     # run the actual test
     yield

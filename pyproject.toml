@@ -3,7 +3,7 @@ requires = ["setuptools==80.9.0", "setuptools-scm==8.3.1", "wheel==0.45.1", "aud
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "playwright"
+name = "playwright_firefox"
 description = "A high-level API to automate web browsers"
 authors = [
     {name = "Microsoft Corporation"}
@@ -33,27 +33,27 @@ classifiers = [
 ]
 
 [project.urls]
-homepage = "https://github.com/Microsoft/playwright-python"
+homepage = "https://github.com/nek0us/playwright-python_firefox"
 "Release notes" = "https://github.com/microsoft/playwright-python/releases"
 
 [project.scripts]
-playwright = "playwright.__main__:main"
+playwright_firefox = "playwright_firefox.__main__:main"
 
 [project.entry-points.pyinstaller40]
-hook-dirs = "playwright._impl.__pyinstaller:get_hook_dirs"
+hook-dirs = "playwright_firefox._impl.__pyinstaller:get_hook_dirs"
 
 [tool.setuptools]
 packages = [
-    "playwright",
-    "playwright.async_api",
-    "playwright.sync_api",
-    "playwright._impl",
-    "playwright._impl.__pyinstaller",
+    "playwright_firefox",
+    "playwright_firefox.async_api",
+    "playwright_firefox.sync_api",
+    "playwright_firefox._impl",
+    "playwright_firefox._impl.__pyinstaller",
 ]
 include-package-data = true
 
 [tool.setuptools_scm]
-version_file = "playwright/_repo_version.py"
+version_file = "playwright_firefox/_repo_version.py"
 
 [tool.pytest.ini_options]
 addopts = "-Wall -rsx -vv -s"
@@ -86,7 +86,7 @@ exclude = [
 profile = "black"
 
 [tool.pyright]
-include = ["playwright", "tests", "scripts"]
+include = ["playwright_firefox", "tests", "scripts"]
 exclude = ["**/node_modules", "**/__pycache__", "**/.*", "./build"]
 pythonVersion = "3.9"
 reportMissingImports = false

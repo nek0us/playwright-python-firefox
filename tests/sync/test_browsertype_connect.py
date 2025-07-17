@@ -19,7 +19,7 @@ from typing import Any, Callable
 
 import pytest
 
-from playwright.sync_api import BrowserType, Error, Playwright, Route
+from playwright_firefox.sync_api import BrowserType, Error, Playwright, Route
 from tests.conftest import RemoteServer
 from tests.server import Server
 

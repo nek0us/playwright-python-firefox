@@ -33,7 +33,7 @@ jobs:
         pip install -r requirements.txt
         pip install -e .
         python -m build --wheel
-        python -m playwright install --with-deps
+        python -m playwright_firefox install --with-deps
     - name: Lint
       run: pre-commit run --show-diff-on-failure --color=always --all-files
     - name: Generate APIs
@@ -92,7 +92,7 @@ jobs:
         pip install -r requirements.txt
         pip install -e .
         python -m build --wheel
-        python -m playwright install --with-deps ${{ matrix.browser }}
+        python -m playwright_firefox install --with-deps ${{ matrix.browser }}
     - name: Common Tests
       run: pytest tests/common --browser=${{ matrix.browser }} --timeout 90
     - name: Test Reference count
@@ -139,7 +139,7 @@ jobs:
         pip install -r requirements.txt
         pip install -e .
         python -m build --wheel
-        python -m playwright install ${{ matrix.browser-channel }} --with-deps
+        python -m playwright_firefox install ${{ matrix.browser-channel }} --with-deps
     - name: Common Tests
       run: pytest tests/common --browser=chromium --browser-channel=${{ matrix.browser-channel }} --timeout 90
     - name: Test Sync API
@@ -192,6 +192,6 @@ jobs:
     - name: Install dependencies & browsers
       run: |
         pip install -r requirements.txt
-        python -m playwright install --with-deps chromium
+        python -m playwright_firefox install --with-deps chromium
     - name: Common Tests
       run: pytest

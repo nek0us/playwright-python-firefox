@@ -15,7 +15,7 @@ from typing import Generator
 
 import pytest
 
-from playwright.sync_api import Page, expect
+from playwright_firefox.sync_api import Page, expect
 
 from .utils import (
     TODO_ITEMS,
@@ -28,7 +28,7 @@ from .utils import (
 @pytest.fixture(autouse=True)
 def run_around_tests(page: Page) -> Generator[None, None, None]:
     # setup before a test
-    page.goto("https://demo.playwright.dev/todomvc")
+    page.goto("https://demo.playwright_firefox.dev/todomvc")
     create_default_todos(page)
     # make sure the app had a chance to save updated todos in storage
     # before navigating to a new view, otherwise the items can get lost :(

@@ -13,7 +13,7 @@
 # limitations under the License.
 import pytest
 
-from playwright.async_api import Error, JSHandle, Page
+from playwright_firefox.async_api import Error, JSHandle, Page
 from tests.server import Server
 
 from .utils import Utils

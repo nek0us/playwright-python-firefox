@@ -16,7 +16,7 @@ from typing import Dict
 
 import pytest
 
-from playwright.sync_api import BrowserContext, BrowserType
+from playwright_firefox.sync_api import BrowserContext, BrowserType
 
 
 def test_context_managers(browser_type: BrowserType, launch_arguments: Dict) -> None:

@@ -14,7 +14,7 @@
 
 import pytest
 
-from playwright.async_api import Error, Page, TimeoutError
+from playwright_firefox.async_api import Error, Page, TimeoutError
 from tests.server import Server
 
 

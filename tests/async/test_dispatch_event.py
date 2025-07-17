@@ -13,7 +13,7 @@
 # limitations under the License.
 
 
-from playwright.async_api import Page, Selectors
+from playwright_firefox.async_api import Page, Selectors
 from tests.server import Server
 
 from .utils import Utils

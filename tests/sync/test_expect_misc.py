@@ -14,7 +14,7 @@
 
 import pytest
 
-from playwright.sync_api import Page, expect
+from playwright_firefox.sync_api import Page, expect
 from tests.server import Server
 
 

@@ -26,7 +26,7 @@ from twisted.internet.selectreactor import SelectReactor
 from twisted.web import resource, server
 from twisted.web.http import Request
 
-from playwright.async_api import Browser, BrowserType, Playwright, expect
+from playwright_firefox.async_api import Browser, BrowserType, Playwright, expect
 
 ssl.optionsForClientTLS
 reactor = cast(SelectReactor, _twisted_reactor)

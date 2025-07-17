@@ -18,7 +18,7 @@ from pathlib import Path
 import pytest
 from twisted.web import http
 
-from playwright.async_api import BrowserContext, Page, Route
+from playwright_firefox.async_api import BrowserContext, Page, Route
 from tests.server import Server
 
 

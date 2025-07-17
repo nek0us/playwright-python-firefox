@@ -15,7 +15,7 @@
 import re
 from typing import Any, List, cast
 
-from playwright.sync_api import Error, Frame, Page, Selectors, ViewportSize
+from playwright_firefox.sync_api import Error, Frame, Page, Selectors, ViewportSize
 
 
 class Utils:

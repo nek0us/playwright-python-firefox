@@ -17,7 +17,7 @@ import threading
 from pathlib import Path
 from typing import Callable, ContextManager
 
-from playwright.sync_api import (
+from playwright_firefox.sync_api import (
     Browser,
     BrowserContext,
     BrowserType,

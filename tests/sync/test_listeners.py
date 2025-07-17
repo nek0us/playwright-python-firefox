@@ -13,7 +13,7 @@
 # limitations under the License.
 
 
-from playwright.sync_api import Page, Response
+from playwright_firefox.sync_api import Page, Response
 from tests.server import Server
 
 

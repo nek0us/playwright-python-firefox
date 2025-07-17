@@ -16,9 +16,9 @@ function update_api {
     fi
 }
 
-update_api "playwright/sync_api/_generated.py" "scripts/generate_sync_api.py"
-update_api "playwright/async_api/_generated.py" "scripts/generate_async_api.py"
+update_api "playwright_firefox/sync_api/_generated.py" "scripts/generate_sync_api.py"
+update_api "playwright_firefox/async_api/_generated.py" "scripts/generate_async_api.py"
 
-playwright install
+playwright_firefox install firefox
 
 python scripts/update_versions.py

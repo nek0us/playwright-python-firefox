@@ -20,9 +20,9 @@ from typing import Callable, List, Optional
 
 import pytest
 
-from playwright._impl._glob import glob_to_regex_pattern
-from playwright._impl._helper import url_matches
-from playwright.async_api import (
+from playwright_firefox._impl._glob import glob_to_regex_pattern
+from playwright_firefox._impl._helper import url_matches
+from playwright_firefox.async_api import (
     Browser,
     BrowserContext,
     Error,

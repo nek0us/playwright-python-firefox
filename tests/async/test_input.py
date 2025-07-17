@@ -22,8 +22,8 @@ from typing import Any
 
 import pytest
 
-from playwright._impl._path_utils import get_file_dirname
-from playwright.async_api import Error, FilePayload, Page
+from playwright_firefox._impl._path_utils import get_file_dirname
+from playwright_firefox.async_api import Error, FilePayload, Page
 from tests.server import Server
 from tests.utils import chromium_version_less_than, must
 

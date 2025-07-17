@@ -16,7 +16,7 @@ from datetime import datetime
 
 import pytest
 
-from playwright.async_api import ConsoleMessage, Error, Page
+from playwright_firefox.async_api import ConsoleMessage, Error, Page
 
 
 async def test_should_timeout(page: Page) -> None:

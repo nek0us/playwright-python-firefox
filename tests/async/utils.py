@@ -15,7 +15,7 @@
 import re
 from typing import Any, List, cast
 
-from playwright.async_api import (
+from playwright_firefox.async_api import (
     ElementHandle,
     Error,
     Frame,

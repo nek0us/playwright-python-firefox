@@ -21,7 +21,7 @@ from typing import Dict, List, Optional, Union
 import pytest
 from twisted.web import http
 
-from playwright.async_api import Browser, Error, Page, Request, Response, Route
+from playwright_firefox.async_api import Browser, Error, Page, Request, Response, Route
 from tests.server import Server, TestServerRequest
 
 from .utils import Utils

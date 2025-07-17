@@ -20,7 +20,7 @@ from urllib.parse import parse_qs
 
 import pytest
 
-from playwright.async_api import Browser, BrowserContext, Error, FilePayload, Page
+from playwright_firefox.async_api import Browser, BrowserContext, Error, FilePayload, Page
 from tests.server import Server, TestServerRequest
 from tests.utils import must
 

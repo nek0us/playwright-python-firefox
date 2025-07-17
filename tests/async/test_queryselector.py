@@ -15,7 +15,7 @@ from pathlib import Path
 
 import pytest
 
-from playwright.async_api import Browser, Error, Page, Selectors
+from playwright_firefox.async_api import Browser, Error, Page, Selectors
 
 from .utils import Utils
 

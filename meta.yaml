@@ -1,5 +1,5 @@
 package:
-  name: playwright
+  name: playwright_firefox
   version: "{{ environ.get('GIT_DESCRIBE_TAG') | replace('v', '') }}"
 
 source:
@@ -11,7 +11,7 @@ build:
   binary_relocation: False
   missing_dso_whitelist: "*"
   entry_points:
-    - playwright = playwright.__main__:main
+    - playwright_firefox = playwright_firefox.__main__:main
 
 requirements:
   build:
@@ -37,23 +37,23 @@ test: # [build_platform == target_platform]
   requires:
     - pip
   imports:
-    - playwright
-    - playwright.sync_api
-    - playwright.async_api
+    - playwright_firefox
+    - playwright_firefox.sync_api
+    - playwright_firefox.async_api
   commands:
-    - playwright --help
-    - playwright install --with-deps
+    - playwright_firefox --help
+    - playwright_firefox install --with-deps
     - python scripts/example_sync.py
     - python scripts/example_async.py
 
 about:
-  home: https://github.com/microsoft/playwright-python
+  home: https://github.com/microsoft/playwright-python-firefox
   license: Apache-2.0
   license_family: Apache
   license_file: LICENSE
-  summary: Python version of the Playwright testing and automation library.
+  summary: Python version of the Playwright_firefox testing and automation library.
   description: |
-    Playwright is a Python library to automate Chromium,
+    Playwright_firefox is a Python library to automate Chromium,
     Firefox and WebKit browsers with a single API. Playwright
     delivers automation that is ever-green, capable, reliable
     and fast.

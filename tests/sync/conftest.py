@@ -21,8 +21,8 @@ from typing import Any, Callable, Dict, Generator, List
 import pytest
 from greenlet import greenlet
 
-from playwright._impl._driver import compute_driver_executable
-from playwright.sync_api import (
+from playwright_firefox._impl._driver import compute_driver_executable
+from playwright_firefox.sync_api import (
     Browser,
     BrowserContext,
     BrowserType,

@@ -16,7 +16,7 @@ from typing import Any, Callable, List
 
 import pytest
 
-from playwright.sync_api import BrowserContext, Error, Page, Request, Route
+from playwright_firefox.sync_api import BrowserContext, Error, Page, Request, Route
 from tests.server import Server
 
 

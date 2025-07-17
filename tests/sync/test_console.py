@@ -16,7 +16,7 @@ from typing import List
 
 import pytest
 
-from playwright.sync_api import ConsoleMessage, Page
+from playwright_firefox.sync_api import ConsoleMessage, Page
 from tests.server import Server
 
 

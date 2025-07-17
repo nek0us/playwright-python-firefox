@@ -20,7 +20,7 @@ from typing import AsyncContextManager, Callable
 
 import pytest
 
-from playwright.async_api import BrowserType, Error, Playwright, Route, expect
+from playwright_firefox.async_api import BrowserType, Error, Playwright, Route, expect
 from tests.conftest import RemoteServer
 from tests.server import Server, TestServerRequest, WebSocketProtocol
 from tests.utils import chromium_version_less_than

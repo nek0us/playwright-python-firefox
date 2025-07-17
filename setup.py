@@ -21,7 +21,7 @@ import sys
 import zipfile
 from typing import Dict
 
-driver_version = "1.54.1"
+driver_version = "1.43.0"
 
 base_wheel_bundles = [
     {
@@ -98,7 +98,8 @@ def extractall(zip: zipfile.ZipFile, path: str) -> None:
 
 
 def download_driver(zip_name: str) -> None:
-    zip_file = f"playwright-{driver_version}-{zip_name}.zip"
+    zip_file = f"playwright_firefox-{driver_version}-{zip_name}.zip"
+    zip_file2 = f"playwright-{driver_version}-{zip_name}.zip"
     destination_path = "driver/" + zip_file
     if os.path.exists(destination_path):
         return
@@ -109,7 +110,7 @@ def download_driver(zip_name: str) -> None:
         or "-next" in driver_version
     ):
         url = url + "next/"
-    url = url + zip_file
+    url = url + zip_file2
     temp_destination_path = destination_path + ".tmp"
     print(f"Fetching {url}")
     # Don't replace this with urllib - Python won't have certificates to do SSL on all platforms.
@@ -121,15 +122,15 @@ class PlaywrightBDistWheelCommand(BDistWheelCommand):
     def run(self) -> None:
         super().run()
         os.makedirs("driver", exist_ok=True)
-        os.makedirs("playwright/driver", exist_ok=True)
+        os.makedirs("playwright_firefox/driver", exist_ok=True)
         self._download_and_extract_local_driver()
 
         wheel = None
-        if os.getenv("PLAYWRIGHT_TARGET_WHEEL", None):
+        if os.getenv("PLAYWRIGHT_firefox_TARGET_WHEEL", None):
             wheel = list(
                 filter(
                     lambda wheel: wheel["wheel"]
-                    == os.getenv("PLAYWRIGHT_TARGET_WHEEL"),
+                    == os.getenv("PLAYWRIGHT_firefox_TARGET_WHEEL"),
                     base_wheel_bundles,
                 )
             )[0]
@@ -152,7 +153,7 @@ class PlaywrightBDistWheelCommand(BDistWheelCommand):
         base_wheel_location: str = glob.glob(os.path.join(self.dist_dir, "*.whl"))[0]
         without_platform = base_wheel_location[:-7]
         download_driver(wheel_bundle["zip_name"])
-        zip_file = f"driver/playwright-{driver_version}-{wheel_bundle['zip_name']}.zip"
+        zip_file = f"driver/playwright_firefox-{driver_version}-{wheel_bundle['zip_name']}.zip"
         with zipfile.ZipFile(zip_file, "r") as zip:
             extractall(zip, f"driver/{wheel_bundle['zip_name']}")
         wheel_location = without_platform + wheel_bundle["wheel"]
@@ -165,9 +166,9 @@ class PlaywrightBDistWheelCommand(BDistWheelCommand):
                 for file in files:
                     from_path = os.path.join(dir_path, file)
                     to_path = os.path.relpath(from_path, driver_root)
-                    zip.write(from_path, f"playwright/driver/{to_path}")
+                    zip.write(from_path, f"playwright_firefox/driver/{to_path}")
             zip.writestr(
-                "playwright/driver/README.md",
+                "playwright_firefox/driver/README.md",
                 f"{wheel_bundle['wheel']} driver package",
             )
         os.remove(base_wheel_location)
@@ -197,9 +198,9 @@ class PlaywrightBDistWheelCommand(BDistWheelCommand):
         assert len(zip_names_for_current_system) == 1
         zip_name = zip_names_for_current_system.pop()
         download_driver(zip_name)
-        zip_file = f"driver/playwright-{driver_version}-{zip_name}.zip"
+        zip_file = f"driver/playwright_firefox-{driver_version}-{zip_name}.zip"
         with zipfile.ZipFile(zip_file, "r") as zip:
-            extractall(zip, "playwright/driver")
+            extractall(zip, "playwright_firefox/driver")
 
 
 setup(

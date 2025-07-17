@@ -22,7 +22,7 @@ from typing import Awaitable, Callable, cast
 
 import pytest
 
-from playwright.async_api import Browser, BrowserContext, Error, Page, Route, expect
+from playwright_firefox.async_api import Browser, BrowserContext, Error, Page, Route, expect
 from tests.server import Server, TestServerRequest
 from tests.utils import must
 

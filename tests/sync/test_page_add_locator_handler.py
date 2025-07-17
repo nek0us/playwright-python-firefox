@@ -15,7 +15,7 @@
 
 import pytest
 
-from playwright.sync_api import Error, Locator, Page, expect
+from playwright_firefox.sync_api import Error, Locator, Page, expect
 from tests.server import Server
 from tests.utils import TARGET_CLOSED_ERROR_MESSAGE
 

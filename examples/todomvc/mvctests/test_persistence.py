@@ -15,7 +15,7 @@ from typing import Generator
 
 import pytest
 
-from playwright.sync_api import Page, expect
+from playwright_firefox.sync_api import Page, expect
 
 from .utils import TODO_ITEMS, check_number_of_completed_todos_in_local_storage
 
@@ -23,7 +23,7 @@ from .utils import TODO_ITEMS, check_number_of_completed_todos_in_local_storage
 @pytest.fixture(autouse=True)
 def run_around_tests(page: Page) -> Generator[None, None, None]:
     # setup before a test
-    page.goto("https://demo.playwright.dev/todomvc")
+    page.goto("https://demo.playwright_firefox.dev/todomvc")
     # run the actual test
     yield
     # run any cleanup code

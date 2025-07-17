@@ -18,41 +18,41 @@ from types import FunctionType
 from typing import Any, Dict, List, Match, Optional, Union, cast, get_args, get_origin
 from typing import get_type_hints as typing_get_type_hints
 
-from playwright._impl._accessibility import Accessibility
-from playwright._impl._assertions import (
+from playwright_firefox._impl._accessibility import Accessibility
+from playwright_firefox._impl._assertions import (
     APIResponseAssertions,
     LocatorAssertions,
     PageAssertions,
 )
-from playwright._impl._browser import Browser
-from playwright._impl._browser_context import BrowserContext
-from playwright._impl._browser_type import BrowserType
-from playwright._impl._cdp_session import CDPSession
-from playwright._impl._clock import Clock
-from playwright._impl._console_message import ConsoleMessage
-from playwright._impl._dialog import Dialog
-from playwright._impl._download import Download
-from playwright._impl._element_handle import ElementHandle
-from playwright._impl._fetch import APIRequest, APIRequestContext, APIResponse
-from playwright._impl._file_chooser import FileChooser
-from playwright._impl._frame import Frame
-from playwright._impl._helper import Error, to_snake_case
-from playwright._impl._input import Keyboard, Mouse, Touchscreen
-from playwright._impl._js_handle import JSHandle, Serializable
-from playwright._impl._locator import FrameLocator, Locator
-from playwright._impl._network import (
+from playwright_firefox._impl._browser import Browser
+from playwright_firefox._impl._browser_context import BrowserContext
+from playwright_firefox._impl._browser_type import BrowserType
+from playwright_firefox._impl._cdp_session import CDPSession
+from playwright_firefox._impl._clock import Clock
+from playwright_firefox._impl._console_message import ConsoleMessage
+from playwright_firefox._impl._dialog import Dialog
+from playwright_firefox._impl._download import Download
+from playwright_firefox._impl._element_handle import ElementHandle
+from playwright_firefox._impl._fetch import APIRequest, APIRequestContext, APIResponse
+from playwright_firefox._impl._file_chooser import FileChooser
+from playwright_firefox._impl._frame import Frame
+from playwright_firefox._impl._helper import Error, to_snake_case
+from playwright_firefox._impl._input import Keyboard, Mouse, Touchscreen
+from playwright_firefox._impl._js_handle import JSHandle, Serializable
+from playwright_firefox._impl._locator import FrameLocator, Locator
+from playwright_firefox._impl._network import (
     Request,
     Response,
     Route,
     WebSocket,
     WebSocketRoute,
 )
-from playwright._impl._page import Page, Worker
-from playwright._impl._playwright import Playwright
-from playwright._impl._selectors import Selectors
-from playwright._impl._tracing import Tracing
-from playwright._impl._video import Video
-from playwright._impl._web_error import WebError
+from playwright_firefox._impl._page import Page, Worker
+from playwright_firefox._impl._playwright import Playwright
+from playwright_firefox._impl._selectors import Selectors
+from playwright_firefox._impl._tracing import Tracing
+from playwright_firefox._impl._video import Video
+from playwright_firefox._impl._web_error import WebError
 
 
 def process_type(value: Any, param: bool = False) -> str:
@@ -224,32 +224,32 @@ import datetime
 from typing import Literal
 
 
-from playwright._impl._accessibility import Accessibility as AccessibilityImpl
-from playwright._impl._api_structures import Cookie, SetCookieParam, FloatRect, FilePayload, Geolocation, HttpCredentials, PdfMargins, Position, ProxySettings, ResourceTiming, SourceLocation, StorageState, ClientCertificate, ViewportSize, RemoteAddr, SecurityDetails, RequestSizes, NameValue, TracingGroupLocation
-from playwright._impl._browser import Browser as BrowserImpl
-from playwright._impl._browser_context import BrowserContext as BrowserContextImpl
-from playwright._impl._browser_type import BrowserType as BrowserTypeImpl
-from playwright._impl._clock import Clock as ClockImpl
-from playwright._impl._cdp_session import CDPSession as CDPSessionImpl
-from playwright._impl._console_message import ConsoleMessage as ConsoleMessageImpl
-from playwright._impl._dialog import Dialog as DialogImpl
-from playwright._impl._download import Download as DownloadImpl
-from playwright._impl._element_handle import ElementHandle as ElementHandleImpl
-from playwright._impl._file_chooser import FileChooser as FileChooserImpl
-from playwright._impl._frame import Frame as FrameImpl
-from playwright._impl._input import Keyboard as KeyboardImpl, Mouse as MouseImpl, Touchscreen as TouchscreenImpl
-from playwright._impl._js_handle import JSHandle as JSHandleImpl
-from playwright._impl._network import Request as RequestImpl, Response as ResponseImpl, Route as RouteImpl, WebSocket as WebSocketImpl, WebSocketRoute as WebSocketRouteImpl
-from playwright._impl._page import Page as PageImpl, Worker as WorkerImpl
-from playwright._impl._web_error import WebError as WebErrorImpl
-from playwright._impl._playwright import Playwright as PlaywrightImpl
-from playwright._impl._selectors import Selectors as SelectorsImpl
-from playwright._impl._video import Video as VideoImpl
-from playwright._impl._tracing import Tracing as TracingImpl
-from playwright._impl._locator import Locator as LocatorImpl, FrameLocator as FrameLocatorImpl
-from playwright._impl._errors import Error
-from playwright._impl._fetch import APIRequest as APIRequestImpl, APIResponse as APIResponseImpl, APIRequestContext as APIRequestContextImpl
-from playwright._impl._assertions import PageAssertions as PageAssertionsImpl, LocatorAssertions as LocatorAssertionsImpl, APIResponseAssertions as APIResponseAssertionsImpl
+from playwright_firefox._impl._accessibility import Accessibility as AccessibilityImpl
+from playwright_firefox._impl._api_structures import Cookie, SetCookieParam, FloatRect, FilePayload, Geolocation, HttpCredentials, PdfMargins, Position, ProxySettings, ResourceTiming, SourceLocation, StorageState, ClientCertificate, ViewportSize, RemoteAddr, SecurityDetails, RequestSizes, NameValue, TracingGroupLocation
+from playwright_firefox._impl._browser import Browser as BrowserImpl
+from playwright_firefox._impl._browser_context import BrowserContext as BrowserContextImpl
+from playwright_firefox._impl._browser_type import BrowserType as BrowserTypeImpl
+from playwright_firefox._impl._clock import Clock as ClockImpl
+from playwright_firefox._impl._cdp_session import CDPSession as CDPSessionImpl
+from playwright_firefox._impl._console_message import ConsoleMessage as ConsoleMessageImpl
+from playwright_firefox._impl._dialog import Dialog as DialogImpl
+from playwright_firefox._impl._download import Download as DownloadImpl
+from playwright_firefox._impl._element_handle import ElementHandle as ElementHandleImpl
+from playwright_firefox._impl._file_chooser import FileChooser as FileChooserImpl
+from playwright_firefox._impl._frame import Frame as FrameImpl
+from playwright_firefox._impl._input import Keyboard as KeyboardImpl, Mouse as MouseImpl, Touchscreen as TouchscreenImpl
+from playwright_firefox._impl._js_handle import JSHandle as JSHandleImpl
+from playwright_firefox._impl._network import Request as RequestImpl, Response as ResponseImpl, Route as RouteImpl, WebSocket as WebSocketImpl, WebSocketRoute as WebSocketRouteImpl
+from playwright_firefox._impl._page import Page as PageImpl, Worker as WorkerImpl
+from playwright_firefox._impl._web_error import WebError as WebErrorImpl
+from playwright_firefox._impl._playwright import playwright_firefox as PlaywrightImpl
+from playwright_firefox._impl._selectors import Selectors as SelectorsImpl
+from playwright_firefox._impl._video import Video as VideoImpl
+from playwright_firefox._impl._tracing import Tracing as TracingImpl
+from playwright_firefox._impl._locator import Locator as LocatorImpl, FrameLocator as FrameLocatorImpl
+from playwright_firefox._impl._errors import Error
+from playwright_firefox._impl._fetch import APIRequest as APIRequestImpl, APIResponse as APIResponseImpl, APIRequestContext as APIRequestContextImpl
+from playwright_firefox._impl._assertions import PageAssertions as PageAssertionsImpl, LocatorAssertions as LocatorAssertionsImpl, APIResponseAssertions as APIResponseAssertionsImpl
 """
 
 

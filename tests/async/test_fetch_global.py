@@ -22,7 +22,7 @@ from urllib.parse import urlparse
 
 import pytest
 
-from playwright.async_api import APIResponse, Error, Playwright, StorageState
+from playwright_firefox.async_api import APIResponse, Error, Playwright, StorageState
 from tests.server import Server, TestServerRequest
 
 

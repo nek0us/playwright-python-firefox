@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from playwright.sync_api import BrowserContext, Page
+from playwright_firefox.sync_api import BrowserContext, Page
 from tests.server import Server
 from tests.utils import must
 

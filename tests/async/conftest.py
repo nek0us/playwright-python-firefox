@@ -19,8 +19,8 @@ from typing import Any, AsyncGenerator, Awaitable, Callable, Dict, Generator
 
 import pytest
 
-from playwright._impl._driver import compute_driver_executable
-from playwright.async_api import (
+from playwright_firefox._impl._driver import compute_driver_executable
+from playwright_firefox.async_api import (
     Browser,
     BrowserContext,
     BrowserType,

@@ -1,7 +1,7 @@
 **/__pycache__/
 driver/
-playwright/driver/
-playwright.egg-info/
+playwright_firefox/driver/
+playwright_firefox.egg-info/
 build/
 dist/
 venv/

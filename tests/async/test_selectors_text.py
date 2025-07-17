@@ -15,7 +15,7 @@ import re
 
 import pytest
 
-from playwright.async_api import Error, Page, expect
+from playwright_firefox.async_api import Error, Page, expect
 
 
 async def test_has_text_and_internal_text_should_match_full_node_text_in_strict_mode(

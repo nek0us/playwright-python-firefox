@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from playwright.sync_api import sync_playwright
+from playwright_firefox.sync_api import sync_playwright
 
 
 def main() -> None:

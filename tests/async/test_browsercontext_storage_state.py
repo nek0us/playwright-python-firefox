@@ -16,7 +16,7 @@ import asyncio
 import json
 from pathlib import Path
 
-from playwright.async_api import Browser, BrowserContext, Page, StorageState
+from playwright_firefox.async_api import Browser, BrowserContext, Page, StorageState
 from tests.server import Server
 
 

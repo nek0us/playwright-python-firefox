@@ -15,7 +15,7 @@
 import asyncio
 import re
 
-from playwright.async_api import BrowserContext, Error, Page, Route
+from playwright_firefox.async_api import BrowserContext, Error, Page, Route
 from tests.server import Server
 from tests.utils import must
 

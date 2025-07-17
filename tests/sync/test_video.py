@@ -18,7 +18,7 @@ from typing import Dict
 
 import pytest
 
-from playwright.sync_api import Browser, BrowserType, Error
+from playwright_firefox.sync_api import Browser, BrowserType, Error
 from tests.server import Server
 
 

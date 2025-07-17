@@ -19,7 +19,7 @@ from typing import Callable, Generator
 
 import pytest
 
-from playwright.async_api import Browser, Download, Error, Page
+from playwright_firefox.async_api import Browser, Download, Error, Page
 from tests.server import Server, TestServerRequest
 from tests.utils import TARGET_CLOSED_ERROR_MESSAGE
 

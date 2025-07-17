@@ -18,7 +18,7 @@ from typing import Callable
 
 import pytest
 
-from playwright.async_api import Browser, Error
+from playwright_firefox.async_api import Browser, Error
 from tests.server import Server, TestServerRequest
 
 

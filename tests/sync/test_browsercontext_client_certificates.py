@@ -26,7 +26,7 @@ from twisted.internet.selectreactor import SelectReactor
 from twisted.web import resource, server
 from twisted.web.http import Request
 
-from playwright.sync_api import Browser, BrowserType, Playwright, expect
+from playwright_firefox.sync_api import Browser, BrowserType, Playwright, expect
 
 reactor = cast(SelectReactor, _twisted_reactor)
 

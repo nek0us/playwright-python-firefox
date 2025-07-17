@@ -17,7 +17,7 @@ import re
 from pathlib import Path
 from typing import AsyncContextManager, Callable
 
-from playwright.async_api import (
+from playwright_firefox.async_api import (
     Browser,
     BrowserContext,
     BrowserType,

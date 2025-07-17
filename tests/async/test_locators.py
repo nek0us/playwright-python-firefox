@@ -20,8 +20,8 @@ from urllib.parse import urlparse
 
 import pytest
 
-from playwright._impl._path_utils import get_file_dirname
-from playwright.async_api import Error, Page, expect
+from playwright_firefox._impl._path_utils import get_file_dirname
+from playwright_firefox.async_api import Error, Page, expect
 from tests.server import Server
 
 _dirname = get_file_dirname()

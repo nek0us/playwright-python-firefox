@@ -20,7 +20,7 @@ from typing import Any, List, Optional
 
 import pytest
 
-from playwright.async_api import (
+from playwright_firefox.async_api import (
     BrowserContext,
     Error,
     Page,

@@ -18,7 +18,7 @@ from typing import Any, Callable, Dict
 
 import pytest
 
-from playwright.sync_api import (
+from playwright_firefox.sync_api import (
     Browser,
     BrowserContext,
     Dialog,

@@ -17,7 +17,7 @@ from datetime import datetime, timedelta, timezone
 from typing import Optional
 from urllib.parse import ParseResult, urlparse
 
-from playwright.async_api import Error, Page
+from playwright_firefox.async_api import Error, Page
 
 
 async def test_evaluate_work(page: Page) -> None:

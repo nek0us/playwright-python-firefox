@@ -17,7 +17,7 @@ from pathlib import Path
 
 import pytest
 
-from playwright.async_api import Page
+from playwright_firefox.async_api import Page
 from tests.server import Server
 
 pytestmark = pytest.mark.only_browser("chromium")

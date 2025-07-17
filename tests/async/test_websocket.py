@@ -17,7 +17,7 @@ from typing import Union
 
 import pytest
 
-from playwright.async_api import Error, Page, WebSocket
+from playwright_firefox.async_api import Error, Page, WebSocket
 from tests.server import Server, WebSocketProtocol
 
 

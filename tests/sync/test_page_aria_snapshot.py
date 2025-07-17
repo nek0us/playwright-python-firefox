@@ -16,7 +16,7 @@ import re
 
 import pytest
 
-from playwright.sync_api import Locator, Page, expect
+from playwright_firefox.sync_api import Locator, Page, expect
 
 
 def _unshift(snapshot: str) -> str:

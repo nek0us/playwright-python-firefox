@@ -14,7 +14,7 @@
 
 from typing import Callable
 
-from playwright.async_api import Page
+from playwright_firefox.async_api import Page
 from tests.server import Server
 from tests.utils import must
 

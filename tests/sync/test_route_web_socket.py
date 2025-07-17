@@ -16,7 +16,7 @@ import re
 import time
 from typing import Any, Awaitable, Callable, Literal, Optional, Union
 
-from playwright.sync_api import Browser, Frame, Page, WebSocketRoute
+from playwright_firefox.sync_api import Browser, Frame, Page, WebSocketRoute
 from tests.server import Server, WebSocketProtocol
 
 

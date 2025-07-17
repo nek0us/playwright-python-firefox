@@ -14,7 +14,7 @@
 
 import pytest
 
-from playwright.sync_api import Error, Page, Route
+from playwright_firefox.sync_api import Error, Page, Route
 from tests.server import Server, TestServerRequest
 
 
