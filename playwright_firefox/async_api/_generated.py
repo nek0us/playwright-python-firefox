@@ -13751,12 +13751,13 @@ class Browser(AsyncContextManager):
             Literal["no-preference", "null", "reduce"]
         ] = None,
         forced_colors: typing.Optional[Literal["active", "none", "null"]] = None,
+        contrast: typing.Optional[Literal["more", "no-preference", "null"]] = None,
         accept_downloads: typing.Optional[bool] = None,
         default_browser_type: typing.Optional[str] = None,
         proxy: typing.Optional[ProxySettings] = None,
-        record_har_path: typing.Optional[typing.Union[str, pathlib.Path]] = None,
+        record_har_path: typing.Optional[typing.Union[pathlib.Path, str]] = None,
         record_har_omit_content: typing.Optional[bool] = None,
-        record_video_dir: typing.Optional[typing.Union[str, pathlib.Path]] = None,
+        record_video_dir: typing.Optional[typing.Union[pathlib.Path, str]] = None,
         record_video_size: typing.Optional[ViewportSize] = None,
         storage_state: typing.Optional[
             typing.Union[StorageState, str, pathlib.Path]
@@ -13765,10 +13766,11 @@ class Browser(AsyncContextManager):
         strict_selectors: typing.Optional[bool] = None,
         service_workers: typing.Optional[Literal["allow", "block"]] = None,
         record_har_url_filter: typing.Optional[
-            typing.Union[str, typing.Pattern[str]]
+            typing.Union[typing.Pattern[str], str]
         ] = None,
         record_har_mode: typing.Optional[Literal["full", "minimal"]] = None,
-        record_har_content: typing.Optional[Literal["attach", "embed", "omit"]] = None
+        record_har_content: typing.Optional[Literal["attach", "embed", "omit"]] = None,
+        client_certificates: typing.Optional[typing.List[ClientCertificate]] = None,
     ) -> "BrowserContext":
         """Browser.new_context
 
@@ -13937,6 +13939,7 @@ class Browser(AsyncContextManager):
                 colorScheme=color_scheme,
                 reducedMotion=reduced_motion,
                 forcedColors=forced_colors,
+                contrast=contrast,
                 acceptDownloads=accept_downloads,
                 defaultBrowserType=default_browser_type,
                 proxy=proxy,
@@ -13951,6 +13954,7 @@ class Browser(AsyncContextManager):
                 recordHarUrlFilter=record_har_url_filter,
                 recordHarMode=record_har_mode,
                 recordHarContent=record_har_content,
+                clientCertificates=client_certificates,
             )
         )
 

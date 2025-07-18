@@ -110,13 +110,14 @@ class BrowserContext(ChannelOwner):
         self._browser: Optional["Browser"] = None
         if parent.__class__.__name__ == "Browser":
             self._browser = cast("Browser", parent)
+            self._browser._contexts.append(self)
         self._pages: List[Page] = []
         self._routes: List[RouteHandler] = []
         self._web_socket_routes: List[WebSocketRouteHandler] = []
         self._bindings: Dict[str, Any] = {}
         self._timeout_settings = TimeoutSettings(None)
         self._owner_page: Optional[Page] = None
-        self._options: Dict[str, Any] =  {} # initializer["options"]
+        self._options: Dict[str, Any] = {'viewport': {'width': 1280, 'height': 720}, 'acceptDownloads': 'accept', 'serviceWorkers': 'block', 'selectorEngines': []}  # initializer["options"]
         self._background_pages: Set[Page] = set()
         self._service_workers: Set[Worker] = set()
         self._base_url: Optional[str] = self._options.get("baseURL")
@@ -454,16 +455,20 @@ class BrowserContext(ChannelOwner):
         behavior: Literal["default", "ignoreErrors", "wait"] = None,
     ) -> None:
         self._routes = remaining
-        if behavior is not None and behavior != "default":
-            await asyncio.gather(*map(lambda router: router.stop(behavior), removed))  # type: ignore
+        # if behavior is not None and behavior != "default":
+        #     await asyncio.gather(*map(lambda router: router.stop(behavior), removed))  # type: ignore
         await self._update_interception_patterns()
+        if behavior is None or behavior == "default":
+            return
+        await asyncio.gather(*map(lambda router: router.stop(behavior), removed))  # type: ignore
 
     async def route_web_socket(
         self, url: URLMatch, handler: WebSocketRouteHandlerCallback
     ) -> None:
         self._web_socket_routes.insert(
             0,
-            WebSocketRouteHandler(self._base_url, url, handler),
+            # WebSocketRouteHandler(self._base_url, url, handler),
+            WebSocketRouteHandler(self._options.get("baseURL"), url, handler),
         )
         await self._update_web_socket_interception_patterns()
 

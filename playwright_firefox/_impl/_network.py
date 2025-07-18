@@ -501,9 +501,45 @@ class Route(ChannelOwner):
 
         async def _inner() -> None:
             self.request._apply_fallback_overrides(overrides)
-            await self._inner_continue(False)
+            # await self._inner_continue(False)
+            await self._internal_continue()
 
         return await self._handle_route(_inner)
+
+    def _internal_continue(
+        self, is_internal: bool = False
+    ) -> Coroutine[Any, Any, None]:
+        async def continue_route() -> None:
+            try:
+                params: Dict[str, Any] = {}
+                params["url"] = self.request._fallback_overrides.url
+                params["method"] = self.request._fallback_overrides.method
+                params["headers"] = self.request._fallback_overrides.headers
+                if self.request._fallback_overrides.post_data_buffer is not None:
+                    params["postData"] = base64.b64encode(
+                        self.request._fallback_overrides.post_data_buffer
+                    ).decode()
+                params = locals_to_params(params)
+
+                if "headers" in params:
+                    params["headers"] = serialize_headers(params["headers"])
+                params["requestUrl"] = self.request._initializer["url"]
+                params["isFallback"] = is_internal
+                await self._connection.wrap_api_call(
+                    lambda: self._race_with_page_close(
+                        self._channel.send(
+                            "continue",
+                            None,
+                            params,
+                        )
+                    ),
+                    is_internal,
+                )
+            except Exception as e:
+                if not is_internal:
+                    raise e
+
+        return continue_route()
 
     async def _inner_continue(self, is_fallback: bool = False) -> None:
         options = self.request._fallback_overrides
