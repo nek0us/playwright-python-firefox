@@ -7,114 +7,45 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-wheels:
-    name: Build wheels on ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
+  pypi-publish:
+    name: Upload release to PyPI
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-22.04, windows-2022, macos-12]
         include:
-          - os: macos-12
-            arch: arm64
-          - os: macos-12
-            arch: x86_64
-          - os: ubuntu-22.04
-            arch: x86_64
-          - os: ubuntu-22.04
-            arch: aarch64
-          - os: windows-2022
-            arch: AMD64
+          - os: ubuntu-latest
+            target-platform: linux-x86_64
+          - os: ubuntu-latest
+            target-platform: linux-aarch64
+          - os: windows-latest
+            target-platform: win-64
+          - os: macos-latest-large
+            target-platform: osx-intel
+          - os: macos-latest-xlarge
+            target-platform: osx-arm64
 
+    runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
-      
-      # macOS ARM 架构设置
-      - name: Set up macOS ARM
-        if: matrix.os == 'macos-12' && matrix.arch == 'arm64'
-        run: |
-          echo "CIBW_ARCHS_MACOS=arm64" >> $GITHUB_ENV
-      
-      # Linux ARM 架构设置
-      - name: Set up QEMU for ARM
-        if: matrix.os == 'ubuntu-22.04' && matrix.arch == 'aarch64'
-        uses: docker/setup-qemu-action@v3
-        with:
-          platforms: arm64
-      
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.10"
-      
-      # 安装 cibuildwheel
-      - name: Install cibuildwheel
-        run: python -m pip install cibuildwheel==2.16.2
-      
-      # 配置构建环境
-      - name: Set build options
-        run: |
-          echo "CIBW_BUILD=cp3*-*" >> $GITHUB_ENV
-          echo "CIBW_BEFORE_ALL_LINUX=apt-get update && apt-get install -y build-essential" >> $GITHUB_ENV
-          echo "CIBW_BEFORE_ALL_WINDOWS=choco install -y vcbuildtools" >> $GITHUB_ENV
-          echo "CIBW_ENVIRONMENT=PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1" >> $GITHUB_ENV
-      
-      # 执行多平台构建
-      - name: Build wheels
-        run: python -m cibuildwheel --output-dir wheelhouse
-        env:
-          CIBW_ARCHS: ${{ matrix.arch || 'auto' }}
-          CIBW_PLATFORM: ${{ matrix.os }}
-      
-      # 上传生成的 wheel 文件 (使用 v4)
-      - uses: actions/upload-artifact@v4
-        with:
-          name: wheels-${{ matrix.os }}-${{ matrix.arch || 'default' }}
-          path: ./wheelhouse/*.whl
-
-  sdist:
-    name: Build source distribution
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.10"
-      
-      - name: Install build tools
-        run: python -m pip install build
-      
-      - name: Build sdist
-        run: python -m build --sdist --outdir dist/
-      
-      # 上传源码包 (使用 v4)
-      - uses: actions/upload-artifact@v4
-        with:
-          name: sdist
-          path: dist/*.tar.gz
-
-  publish:
-    name: Publish to PyPI
-    needs: [build-wheels, sdist]
-    runs-on: ubuntu-latest
-    steps:
-      # 下载所有构建产物 (使用 v4)
-      - name: Download all artifacts
-        uses: actions/download-artifact@v4
-        with:
-          path: dist
-          pattern: '*'
-          merge-multiple: true
-      
-      # 列出所有文件用于调试
-      - name: List artifacts
-        run: ls -R dist
-      
-      # 发布到 PyPI
-      - name: Publish package
-        uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          password: ${{ secrets.PYPI_API_TOKEN }}
-          skip_existing: true
-          verbose: true
+    - uses: actions/checkout@master
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: "3.x"
+    - name: Install pypa/build
+      run: >-
+        python -m
+        pip install
+        build
+        --user
+    - name: Build a binary wheel and a source tarball
+      run: >-
+        python -m
+        build
+        --sdist
+        --wheel
+        --outdir dist/
+        .
+    - name: Publish distribution to PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        password: ${{ secrets.PYPI_API_TOKEN }}
