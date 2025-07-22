@@ -19,8 +19,6 @@ jobs:
             target-wheel: manylinux_2_17_aarch64.manylinux2014_aarch64.whl
           - os: windows-latest
             target-wheel: win_amd64.whl
-          - os: windows-latest
-            target-wheel: win_arm64.whl
 
     steps:
       - uses: actions/checkout@v4
