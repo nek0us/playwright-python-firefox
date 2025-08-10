@@ -52,3 +52,8 @@ More comfortable in another programming language? [Playwright](https://playwrigh
 - [Node.js (JavaScript / TypeScript)](https://playwright.dev/docs/intro),
 - [.NET](https://playwright.dev/dotnet/docs/intro),
 - [Java](https://playwright.dev/java/docs/intro).
+
+
+## fork by
+- [microsoft/playwright-python](https://github.com/microsoft/playwright-python)
+- [Mattwmaster58/playwright_stealth](https://github.com/Mattwmaster58/playwright_stealth)
