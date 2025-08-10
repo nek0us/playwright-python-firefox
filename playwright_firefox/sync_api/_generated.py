@@ -73,7 +73,7 @@ from playwright_firefox._impl._network import WebSocket as WebSocketImpl
 from playwright_firefox._impl._network import WebSocketRoute as WebSocketRouteImpl
 from playwright_firefox._impl._page import Page as PageImpl
 from playwright_firefox._impl._page import Worker as WorkerImpl
-from playwright_firefox._impl._playwright import playwright_firefox as PlaywrightImpl
+from playwright_firefox._impl._playwright import Playwright as PlaywrightImpl
 from playwright_firefox._impl._selectors import Selectors as SelectorsImpl
 from playwright_firefox._impl._sync_base import (
     EventContextManager,

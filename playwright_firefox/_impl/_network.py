@@ -501,8 +501,8 @@ class Route(ChannelOwner):
 
         async def _inner() -> None:
             self.request._apply_fallback_overrides(overrides)
-            # await self._inner_continue(False)
-            await self._internal_continue()
+            await self._inner_continue(False)
+            # await self._internal_continue()
 
         return await self._handle_route(_inner)
 

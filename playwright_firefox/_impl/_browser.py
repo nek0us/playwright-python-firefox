@@ -65,19 +65,19 @@ class Browser(ChannelOwner):
         self, parent: "BrowserType", type: str, guid: str, initializer: Dict
     ) -> None:
         super().__init__(parent, type, guid, initializer)
-        self._browser_type: parent # Optional["BrowserType"] = None
+        self._browser_type: Optional["BrowserType"] = None
         self._is_connected = True
         self._should_close_connection_on_close = False
         self._cr_tracing_path: Optional[str] = None
 
-        self._contexts: List[BrowserContext] = [] # Set[BrowserContext] = set()
+        self._contexts: Set[BrowserContext] = set()
         self._traces_dir: Optional[str] = None
-        # self._channel.on(
-        #     "context",
-        #     lambda params: self._did_create_context(
-        #         cast(BrowserContext, from_channel(params["context"]))
-        #     ),
-        # )
+        self._channel.on(
+            "context",
+            lambda params: self._did_create_context(
+                cast(BrowserContext, from_channel(params["context"]))
+            ),
+        )
         self._channel.on("close", lambda _: self._on_close())
         self._close_reason: Optional[str] = None
 
@@ -115,11 +115,11 @@ class Browser(ChannelOwner):
 
     @property
     def contexts(self) -> List[BrowserContext]:
-        return self._contexts.copy() # list(self._contexts)
+        return list(self._contexts)
 
     @property
     def browser_type(self) -> "BrowserType":
-        # assert self._browser_type is not None
+        assert self._browser_type is not None
         return self._browser_type
 
     def is_connected(self) -> bool:
